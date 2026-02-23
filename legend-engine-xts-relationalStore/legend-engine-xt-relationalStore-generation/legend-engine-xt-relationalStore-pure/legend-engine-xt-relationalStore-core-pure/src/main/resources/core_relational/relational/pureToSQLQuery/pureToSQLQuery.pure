@@ -6542,11 +6542,6 @@ function <<access.private>> meta::relational::functions::pureToSqlQuery::process
 
    let origSelect = $nestedQuery.select->cast(@TdsSelectSqlQuery);
 
-   let origColumnsByName = $origSelect.columns->map(column|
-          let name = $column->extractColumnName();
-          pair($name, $column);
-      );
-
    let origGroupByByNames = $origSelect.groupBy->map(column| $column->extractColumnName());
 
    let origSortByByNames = $origSelect.orderBy.column->map(column | $column->extractColumnName());
